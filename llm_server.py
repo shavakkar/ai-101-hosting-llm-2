@@ -4,10 +4,10 @@ from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
 app = FastAPI()
 
-# Load model once at startup
-model_name = "google/flan-t5-small"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
+# ✅ Load model from local folder
+model_path = r"C:/Softwares/LLMS/flan-t5-small"
+tokenizer = AutoTokenizer.from_pretrained(model_path)
+model = AutoModelForSeq2SeqLM.from_pretrained(model_path)
 
 class Prompt(BaseModel):
     prompt: str
